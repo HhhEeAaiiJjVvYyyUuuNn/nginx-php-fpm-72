@@ -1,8 +1,8 @@
 name: Publish PHP 7.2 image to Docker Hub
 on:
   push:
-    branches-ignore:
-      - master
+    tags:
+      - 'v*'
 
 jobs:
   build:
