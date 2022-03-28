@@ -5,12 +5,19 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
-    - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: default/nginx-php-fpm
-        registry: thelittlebridge-images-registry.cn-shanghai.cr.aliyuncs.com
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: "php72"
+      - uses: actions/checkout@v2
+      - name: Docker Build & Push Action
+        # You may pin to the exact commit or the version.
+        # uses: mr-smithers-excellent/docker-build-push@a7fe6652db5c7274374844e81692992f5a2befb9
+        uses: mr-smithers-excellent/docker-build-push@v5.6
+        with:
+          # Name of the Docker image
+          image: default/nginx-php-fpm
+          # Tags override for Docker image
+          tags: v0.0.2
+          # Target Docker registry
+          registry: thelittlebridge-images-registry.cn-shanghai.cr.aliyuncs.com
+          # Docker registry username
+          username: ${{ secrets.DOCKER_USERNAME }}
+          # Docker registry password
+          password: ${{ secrets.DOCKER_PASSWORD }}
