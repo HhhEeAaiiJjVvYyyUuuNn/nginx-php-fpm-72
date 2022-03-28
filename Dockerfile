@@ -1,6 +1,4 @@
-FROM debian:buster
-
-LABEL maintainer="Colin Wilson colin@wyveo.com"
+FROM thelittlebridge-images-registry-vpc.cn-shanghai.cr.aliyuncs.com/default/debian:buster
 
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive

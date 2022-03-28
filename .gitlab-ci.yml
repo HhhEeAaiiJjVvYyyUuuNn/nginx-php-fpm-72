@@ -15,6 +15,7 @@ build_image:
   variables:
     IMAGE_TAG: ${ACR_REGISTRY_VPC}/default/${CI_PROJECT_NAME}:$CI_COMMIT_REF_SLUG
   script:
+    - echo "image_tag=${IMAGE_TAG}"
     - echo "$ACR_REGISTRY_PASSWORD" | docker login $ACR_REGISTRY_VPC --username $ACR_REGISTRY_USERNAME --password-stdin
     - docker build -t  $IMAGE_TAG .
     - docker push $IMAGE_TAG
