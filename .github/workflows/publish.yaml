@@ -1,5 +1,9 @@
 name: Publish PHP 7.2 image to Docker Hub
-on: push
+on:
+  push:
+    branches-ignore:
+      - master
+
 jobs:
   build:
     runs-on: ubuntu-20.04
