@@ -11,11 +11,11 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5.6
         with:
           # Name of the Docker image
-          image: default/nginx-php-fpm
+          image: default/nginx-php-fpm-72
           # Tags override for Docker image
           tags: $GITHUB_REF_NAME
           # Target Docker registry
-          registry: thelittlebridge-images-registry.cn-shanghai.cr.aliyuncs.com
+          registry: ${{ secrets.DOCKER_REGISTRY }}
           # Docker registry username
           username: ${{ secrets.DOCKER_USERNAME }}
           # Docker registry password
