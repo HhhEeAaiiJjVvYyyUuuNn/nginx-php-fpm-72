@@ -1,4 +1,4 @@
-FROM thelittlebridge-images-registry-vpc.cn-shanghai.cr.aliyuncs.com/default/debian:buster
+FROM debian:buster
 
 # Let the container know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
